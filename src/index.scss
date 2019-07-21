@@ -1,0 +1,49 @@
+*, ::before, ::after { box-sizing: border-box; }
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+        sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: #100E17;
+    color: #ffffff;
+    font-weight: 400;
+    line-height: 1.35;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1,h2,h3,h4,h5,h6 { margin: 0; line-height: 1; }
+h1.post-header:hover {
+    transition: color 450ms ease-out;
+    color: #da1b5f;
+    cursor: pointer;
+}
+p { margin: 0; line-height: 1.6; }
+a { text-decoration: none; outline: none; color: #f1f1f1; transition: all 450ms ease; &:hover { color:#ec407a; } }
+ul { list-style: none; padding: 0; margin: 0; }
+img { max-width: 100%; }
+
+a.active {
+    color:#ec407a;
+}
+
+// main {
+//     padding: 15px 15px;
+// }
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+    height: inherit;
+    @media(max-width: 1280px) {
+        max-width: 992px;
+    }
+}
