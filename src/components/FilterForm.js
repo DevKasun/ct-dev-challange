@@ -4,16 +4,20 @@ class FilterForm extends Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
+        console.log('Search');
     }
+
     handleChange = (e) => {
-        console.log(e.target.value);
+        this.setState({
+            searchText: e.target.value
+        })
     }
 
     render() {
         return (
             <div className="filter-form" style={filterStyle}>
                 <form style={formStyle} onSubmit={this.handleSubmit}>
-                    <input style={textInput} type="text" onChange={this.handleChange}/>
+                    <input style={textInput} type="text" name="searchText" onChange={this.handleChange} placeholder="Search posts, users"/>
                     <input style={submitBtn} type="submit" value="Search"/>
                 </form>
             </div>

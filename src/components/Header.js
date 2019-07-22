@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import FilterForm from './FilterForm';
+// import FilterForm from './FilterForm';
 
 class Header extends Component {
     render() {
+        const {value} = this.props;
         return(
             <header style={ headerStyle }>
                 <nav>
                     <div className="container">
                         <ul>
-                            <li style={ liStyle }><NavLink to="/"><strong>Home</strong></NavLink></li>
-                            <li style={ liStyle }><NavLink to="/about"><strong>Albums</strong></NavLink></li>
+                            <li style={ liStyle }><Link to="/"><strong>Home</strong></Link></li>
+                            <li style={ liStyle }><Link to="/albums"><strong>Albums</strong></Link></li>
                         </ul>
-                        <FilterForm/>
+                        {/* <FilterForm  value={value}/> */}
                     </div>
                 </nav>
             </header>
