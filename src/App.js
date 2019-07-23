@@ -124,7 +124,7 @@ class App extends Component {
         .then( res => {
             console.log(res);
             this.setState({
-                posts: res.data
+                posts: res.data.slice(0,20)
             })
             return axios.get('https://jsonplaceholder.typicode.com/users')
         }).then(res => {
@@ -147,7 +147,7 @@ class App extends Component {
                         <Switch>
                             <Route exact path="/" render={ props => (
                                 <React.Fragment>
-                                    <Home posts={posts}  />
+                                    <Home posts={posts} users={users} />
                                 </React.Fragment>
                             ) } />
                             <Route path="/albums" />

@@ -4,7 +4,8 @@ import axios from 'axios';
 class Post extends Component {
 
     state = {
-        posts: null
+        posts: null,
+        comments: [],
     }
 
     componentDidMount() {
@@ -15,6 +16,12 @@ class Post extends Component {
             this.setState({
                 posts: res.data
             })
+            return axios.get('https://jsonplaceholder.typicode.com/comments')
+        }).then(res => {
+            console.log(res);
+            this.setState({
+                comments: res.data.slice(0,20)
+            })
         }).catch(err => {
             console.log(err);
         })
@@ -22,7 +29,12 @@ class Post extends Component {
     }
 
     render() {
-        const { posts } = this.state;
+        const { posts, comments } = this.state;
+
+        let postsCmnts = comments.filter(comment => {
+            return comment.postId == posts.id
+        })
+
         const post = posts ? (
             <div className="post">
                 <h1>{posts.title}</h1>
@@ -31,12 +43,34 @@ class Post extends Component {
         ) : (
             <div>Post loading...</div>
         )
+            
+        const cmntsList = postsCmnts.length ? (
+            postsCmnts.map(cmnt => {
+                return(
+                    <div className="comment" style={comment} key={cmnt.id}>
+                        <p>{cmnt.name}</p>
+                        <span>{cmnt.email}</span>
+                        <p>{cmnt.body}</p>
+                    </div>
+                )
+            })
+        ) : (
+            <div className="container">No comments</div>
+        )
+
         return(
             <div className="container">
                 {post}
+                <div className="comment-area">
+                    { cmntsList }
+                </div>
             </div>
         )
     }
+}
+
+const comment = {
+    padding: '20px 10px'
 }
 
 export default Post;

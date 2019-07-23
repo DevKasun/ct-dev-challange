@@ -19,7 +19,7 @@ class Home extends Component {
 
     render() {
 
-        const { posts } = this.props;
+        const { posts, users } = this.props;
         const { search } = this.state;
 
         console.log(search)
