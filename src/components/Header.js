@@ -11,7 +11,7 @@ class Header extends Component {
                     <div className="container">
                         <ul>
                             <li style={ liStyle }><Link to="/"><strong>Home</strong></Link></li>
-                            <li style={ liStyle }><Link to="/albums"><strong>Albums</strong></Link></li>
+                            <li style={ liStyle }><Link to="/users"><strong>Users</strong></Link></li>
                         </ul>
                         {/* <FilterForm  value={value}/> */}
                     </div>
@@ -30,6 +30,7 @@ const headerStyle = {
 const liStyle = {
     display: 'inline-block',
     padding: '15px',
+    paddingLeft: '0',
     fontSize: '20px'
 }
 

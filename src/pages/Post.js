@@ -18,7 +18,7 @@ class Post extends Component {
             })
             return axios.get('https://jsonplaceholder.typicode.com/comments')
         }).then(res => {
-            console.log(res);
+            //console.log(res);
             this.setState({
                 comments: res.data.slice(0,20)
             })
@@ -36,7 +36,7 @@ class Post extends Component {
         })
 
         const post = posts ? (
-            <div className="post">
+            <div className="post" style={postStyle}>
                 <h1>{posts.title}</h1>
                 <p>{posts.body}</p>
             </div>
@@ -48,9 +48,9 @@ class Post extends Component {
             postsCmnts.map(cmnt => {
                 return(
                     <div className="comment" style={comment} key={cmnt.id}>
-                        <p>{cmnt.name}</p>
-                        <span>{cmnt.email}</span>
-                        <p>{cmnt.body}</p>
+                        <p style={commentUserName}>{cmnt.name}</p>
+                        <span style={commentUserEmail}>{cmnt.email}</span>
+                        <p style={commentBody}>{cmnt.body}</p>
                     </div>
                 )
             })
@@ -61,7 +61,8 @@ class Post extends Component {
         return(
             <div className="container">
                 {post}
-                <div className="comment-area">
+                <div className="comment-area" style={commentSection}>
+                    <h3>Comments</h3>
                     { cmntsList }
                 </div>
             </div>
@@ -69,8 +70,26 @@ class Post extends Component {
     }
 }
 
-const comment = {
+
+const postStyle = {
+    padding: '30px 0'
+}
+const commentSection = {
     padding: '20px 10px'
+}
+const comment = {
+    padding: '20px 0'
+}
+const commentUserName = {
+    fontWeight: '700'
+}
+const commentUserEmail = {
+    fontSize: '14px'
+}
+const commentBody = {
+    fontSize: '18px',
+    color: '#da1b5f',
+    paddingTop: '10px'
 }
 
 export default Post;

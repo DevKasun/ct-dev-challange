@@ -16,13 +16,13 @@ class Home extends Component {
             search: e.target.value.substr(0, 20)
         })
     } 
-
+    
     render() {
 
-        const { posts, users } = this.props;
+        const { posts } = this.props;
         const { search } = this.state;
 
-        console.log(search)
+        //console.log(search);
 
         let filteredPost = posts.filter(post => {
             return post.title.toLowerCase().indexOf(search.toLowerCase()) !== -1
@@ -32,7 +32,7 @@ class Home extends Component {
             filteredPost.map(post => {
                 return(
                     <div className="posts" key={post.id} style={postStyle}>
-                        <Link to={"/" + post.id}>
+                        <Link to={"/posts/" + post.id}>
                             <h1 className="post-header">{ post.title }</h1>
                         </Link>
                     </div>
@@ -45,7 +45,7 @@ class Home extends Component {
         return (
             <div className="container">
                 <div className="posts-list">
-                    <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search posts, users"/>
+                    <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search posts"/>
                     { postsList }
                 </div>
             </div>
