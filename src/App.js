@@ -7,6 +7,7 @@ import Post from './pages/Post';
 import Users from './pages/Users';
 import UserPost from './pages/UserPost';
 import Albums from './pages/Albums';
+import Galary from './pages/Galary';
 
 
 class App extends Component {
@@ -46,18 +47,20 @@ class App extends Component {
                     <main>
                         <Header/>
                         <Switch>
-                            <Route exact path="/" render={ props => (
-                                <React.Fragment>
-                                    <Home posts={posts}/>
-                                </React.Fragment>
-                            ) } />
+                            <Route exact path="/users/:user_id/albums/:album_id" component={Galary}/>
+                            <Route path="/users/:user_id/albums" component={Albums}/>
+                            <Route path="/users/:user_id/posts" component={UserPost}/>
+                            <Route path="/posts/:post_id" component={Post}/> 
                             <Route path="/users" render={ props =>(
                                 <React.Fragment>
                                     <Users users={users}/>
                                 </React.Fragment>
                             )}/>
-                            <Route path="/posts/:post_id" component={Post}/>
-                            <Route path="/users/:user_id" component={UserPost}/>
+                            <Route path="/" render={ props => (
+                                <React.Fragment>
+                                    <Home posts={posts}/>
+                                </React.Fragment>
+                            ) } />
                         </Switch>
                     </main>
                 </div>

@@ -42,7 +42,7 @@ class Users extends Component {
                         <p style={dataRows}>{user.website}</p>
 
                         <div style={linkFonts}>
-                            <Link to={`/users/${user.id}`}>Posts</Link> | <Link to="/albums">Albums</Link>
+                            <Link to={`/users/${user.id}/posts`}>Posts</Link> | <Link to={`/users/${user.id}/albums`}>Albums</Link>
                         </div>
                     </div>
                 )
@@ -55,12 +55,13 @@ class Users extends Component {
             <div className="container">
                 <div className="users-list">
                     <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search user name"/>
-                    <div className="userList" style={userList}>    
+                    <div className="userList" style={userList}>
                         { usersList }
                     </div>
                 </div>
             </div>
         )
+        
     }
 }
 
@@ -94,7 +95,6 @@ const userDetails = {
     padding: '30px 30px',
     // margin: '30px 0',
     borderRadius: '16px',
-    transition: 'all 450ms ease-out'
 } 
 
 const userList = {
