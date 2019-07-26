@@ -5,7 +5,6 @@ class Galary extends Component {
     
     state = {
         albums:[],
-        users:[],
         photos:[]
     }
     
@@ -43,7 +42,7 @@ class Galary extends Component {
         const photoList = albumPhotos.length ? (
             albumPhotos.map(photo => {
                 return(
-                    <div key={photo.id} style={imgWrap}>
+                    <div className="img-wrap" key={photo.id}>
                         <img src={photo.url} alt="photos"/>
                     </div>
                 )
@@ -55,27 +54,13 @@ class Galary extends Component {
         return (
             
             <div className="container">
-                <h2 className="page-header">Posts</h2>
-                <div className="gridstyle" style={gridstyle}>
+                <h2 className="page-header">Photos</h2>
+                <div className="img-grid">
                     { photoList }
                 </div>
             </div>
         )
     }
-}
-
-const gridstyle = {
-    position: 'relative',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    gridGap: '5px',
-    margin: '40px 0',
-    transition: 'all 450ms ease-out'
-}
-
-const imgWrap = {
-    backgroundColor: '#17141d',
-    boxShadow: '-1em 0 3em #000',
 }
 
 const noPost = {

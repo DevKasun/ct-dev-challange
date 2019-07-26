@@ -28,7 +28,7 @@ class Users extends Component {
         const usersList = filteredUsers.length ? (
             filteredUsers.map(user => {
                 return(
-                    <div className="userDetails" style={userDetails} key={user.id}>
+                    <div className="userDetails" key={user.id}>
                         <span>Name :</span>
                         <p style={dataRows}>{user.name}</p>
 
@@ -55,7 +55,7 @@ class Users extends Component {
             <div className="container">
                 <div className="users-list">
                     <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search user name"/>
-                    <div className="userList" style={userList}>
+                    <div className="userList">
                         { usersList }
                     </div>
                 </div>
@@ -88,24 +88,6 @@ const noUser = {
     padding: '30px 0',
 }
 
-const userDetails = {
-    padding: '30px 0',
-    backgroundColor: '#17141d',
-    boxShadow: '-1em 0 3em #000',
-    padding: '30px 30px',
-    // margin: '30px 0',
-    borderRadius: '16px',
-} 
-
-const userList = {
-    // padding: '30px 0'
-    position: 'relative',
-    display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
-    gridGap: '5px',
-    margin: '40px 0',
-    transition: 'all 450ms ease-out'
-}
 const dataRows = {
     paddingBottom: '20px'
 }

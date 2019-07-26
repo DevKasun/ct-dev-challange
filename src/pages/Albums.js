@@ -40,7 +40,7 @@ class Albums extends Component {
         const albumsList = userAlbums.length ? (
             userAlbums.map(album => {
                 return(
-                    <div className="album" key={album.id} style={albumStyle}>
+                    <div className="album" key={album.id}>
                         <Link to={`/users/${users.id}/albums/${album.id}`}>
                             <h3>{album.title}</h3>
                         </Link>
@@ -56,30 +56,12 @@ class Albums extends Component {
         return (
             <div className="container">
                 <h2 className="page-header">Albums</h2>
-                <div className="album-list" style={gridList}>
+                <div className="album-list">
                     {albumsList}
                 </div>
             </div>
         )
     }
-}
-
-const gridList = {
-    // position: 'relative',
-    // display: 'grid',
-    // gridTemplateColumns: '1fr 1fr 1fr',
-    // gridGap: '5px',
-    // margin: '40px 0',
-    // transition: 'all 450ms ease-out'
-    marginTop: '30px'
-}
-
-const albumStyle = {
-    backgroundColor: '#17141d',
-    boxShadow: '-1em 0 3em #000',
-    padding: '40px 20px',
-    //margin: '30px 0',
-    borderRadius: '16px',
 }
 
 const noPost = {

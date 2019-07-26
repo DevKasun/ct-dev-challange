@@ -31,7 +31,7 @@ class Home extends Component {
         const postsList = filteredPost.length ? (
             filteredPost.map(post => {
                 return(
-                    <div className="posts" key={post.id} style={postStyle}>
+                    <div className="posts" key={post.id}>
                         <Link to={"/posts/" + post.id}>
                             <h1 className="post-header">{ post.title }</h1>
                         </Link>
@@ -44,8 +44,8 @@ class Home extends Component {
 
         return (
             <div className="container">
-                <div className="posts-list">
-                    <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search posts"/>
+                <input type="text" style={textInput} value={search} onChange={this.updateSearch.bind(this)} placeholder="Search posts"/>
+                <div className="posts-list" style={postWrap}>
                     { postsList }
                 </div>
             </div>
@@ -58,12 +58,8 @@ const noPost = {
     padding: '40px 0'
 }
 
-const postStyle = {
-    backgroundColor: '#17141d',
-    boxShadow: '-1em 0 3em #000',
-    padding: '30px 30px',
-    margin: '30px 0',
-    borderRadius: '16px',
+const postWrap= {
+    margin: '30px 0'
 }
 
 const textInput = {
